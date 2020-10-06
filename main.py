@@ -2,8 +2,9 @@ from bst import BST
 
 tree = BST()
 
-tree.insert(3)
-tree.insert(1)
-tree.insert(10)
+tree.insert("Rey", "UwU")
+tree.insert("Ganteng", "UwU")
+tree.insert("Rey", "LOL")
+tree.insert("Rey", "UwU")
 
 print(tree.inorder())
