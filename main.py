@@ -8,3 +8,6 @@ tree.insert("Rey", "LOL")
 tree.insert("Rey", "UwU")
 
 print(tree.inorder())
+
+print(tree.search("Rey"))
+print(tree.search("Jelek"))
