@@ -22,14 +22,14 @@ class Node(object):
 				self.right = Node(wordInformation(word))
 				self.right.data.increaseCount(file_name)
 
-	def find(self, d):
-		if self.data == d:
-			return True
-		elif d < self.data and self.left:
-			return self.left.find(d)
-		elif d > self.data and self.right:
-			return self.right.find(d)
-		return False
+	def search(self, word):
+		if self.data.word == word:
+			return self.data.count
+		elif word < self.data.word and self.left:
+			return self.left.search(word)
+		elif word > self.data.word and self.right:
+			return self.right.search(word)
+		return {}
 
 	def preorder(self, l):
 		l.append(self.data)
@@ -68,11 +68,11 @@ class BST(object):
 			self.root.data.increaseCount(file_name)
 
 	# return True if d is found in tree, false otherwise
-	def find(self, d):
+	def search(self, word):
 		if self.root:
-			return self.root.find(d)
+			return self.root.search(word)
 		else:
-			return False
+			return {}
 
 	# return list of data elements resulting from preorder tree traversal
 	def preorder(self):
