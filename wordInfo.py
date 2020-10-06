@@ -1,10 +1,10 @@
 class wordInformation(object):
     def __init__(self, word):
         self.word = word
-        self.indexes = {}
+        self.count = {}
 
-    def insertIndex(self, file_number, index):
-        if file_number not in self.indexes.keys():
-            self.indexes[file_number] = []
+    def increaseCount(self, file_name):
+        if file_name not in self.count.keys():
+            self.count[file_name] = 0
 
-        self.indexes[file_number].append(index)
+        self.count[file_name] += 1

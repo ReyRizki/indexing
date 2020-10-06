@@ -6,21 +6,21 @@ class Node(object):
 		self.left = None
 		self.right = None
         
-	def insert(self, word, file_number, index):
+	def insert(self, word, file_name):
 		if self.data.word == word:
-			self.data.insertIndex(file_number, index)
+			self.data.increaseCount(file_name)
 		elif word < self.data.word:
 			if self.left:
-				return self.left.insert(word, file_number, index)
+				return self.left.insert(word, file_name)
 			else:
 				self.left = Node(wordInformation(word))
-				self.left.data.insertIndex(file_number, index)
+				self.left.data.increaseCount(file_name)
 		else:
 			if self.right:
-				return self.right.insert(word, file_number, index)
+				return self.right.insert(word, file_name)
 			else:
 				self.right = Node(wordInformation(word))
-				self.right.data.insertIndex(file_number, index)
+				self.right.data.increaseCount(file_name)
 
 	def find(self, d):
 		if self.data == d:
@@ -50,7 +50,7 @@ class Node(object):
 	def inorder(self, l):
 		if self.left:
 			self.left.inorder(l)
-		l.append((self.data.word, self.data.indexes))
+		l.append((self.data.word, self.data.count))
 		if self.right:
 			self.right.inorder(l)
 		return l
@@ -60,12 +60,12 @@ class BST(object):
 		self.root = None
 
 	# return True if successfully inserted, false if exists
-	def insert(self, word, file_number, index):
+	def insert(self, word, file_name):
 		if self.root:
-			return self.root.insert(word, file_number, index)
+			return self.root.insert(word, file_name)
 		else:
 			self.root = Node(wordInformation(word))
-			self.root.data.insertIndex(file_number, index)
+			self.root.data.increaseCount(file_name)
 
 	# return True if d is found in tree, false otherwise
 	def find(self, d):
