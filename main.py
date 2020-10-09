@@ -1,4 +1,8 @@
 from bst import BST
+import re
+
+def preprocessText(s):
+    return re.sub(r'[^\w\s]', '', s).lower()
 
 def fileToTree(tree, file_name):
     file1 = open(file_name, 'r') 
@@ -14,7 +18,7 @@ def fileToTree(tree, file_name):
         line = line.split(' ')
 
         for word in line:
-            tree.insert(word, file_name)
+            tree.insert(preprocessText(word), file_name)
     
     file1.close()
 
@@ -34,4 +38,4 @@ for _ in range(n):
 
 tree = generateTree(files)
 
-print(tree.search('BTS'))
+print(tree.search(preprocessText('BTS')))
