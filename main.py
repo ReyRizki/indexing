@@ -18,8 +18,20 @@ def fileToTree(tree, file_name):
     
     file1.close()
 
-tree = BST()
+def generateTree(files):
+    tree = BST()
 
-fileToTree(tree, 'test_file.txt')
+    for file in files:
+        fileToTree(tree, file)
+
+    return tree
+
+n = int(input())
+files = []
+
+for _ in range(n):
+    files.append(str(input()))
+
+tree = generateTree(files)
 
 print(tree.search('BTS'))
