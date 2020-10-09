@@ -30,12 +30,20 @@ def generateTree(files):
 
     return tree
 
-n = int(input())
+n = int(input("Number of files: "))
 files = []
 
+print("File names:")
 for _ in range(n):
     files.append(str(input()))
 
 tree = generateTree(files)
 
-print(tree.search(preprocessText('BTS')))
+again = 'y'
+
+while again != 'n' and again != 'N':
+    key = input("Search key: ")
+
+    print(tree.search(preprocessText(key)))
+
+    again = input("Search again? (Y/N) ")
